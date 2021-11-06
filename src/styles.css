@@ -115,3 +115,7 @@ p {
   left: 24px;
   top: 5px;
 }
+footer {
+  text-align: center;
+  font-size: 10px;
+}
