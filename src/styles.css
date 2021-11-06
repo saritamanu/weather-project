@@ -1,0 +1,117 @@
+.box {
+  max-width: 600px;
+  margin: 20px auto;
+  padding-bottom: 60px;
+  border: 3px #303f42;
+  font-family: "Patrick Hand", cursive;
+  border-radius: 28px;
+  box-shadow: 14px 10px 19px 3px rgba(148, 148, 148, 0.3);
+  background: radial-gradient(
+    circle at 10% 20%,
+    rgb(248, 219, 219) 0%,
+    rgb(229, 248, 250) 90%
+  );
+}
+
+.search {
+  position: relative;
+  left: 320px;
+  text-align: center;
+  top: 30px;
+}
+.submit {
+  position: relative;
+  left: 320px;
+  top: 30px;
+}
+button {
+  position: relative;
+  left: 200px;
+  text-align: center;
+  border-radius: 5px;
+  padding: 5x 10px;
+}
+.main-sun {
+  display: block;
+  position: relative;
+  top: -120px;
+  left: 80px;
+}
+.city {
+  position: relative;
+  left: 120px;
+  top: 50px;
+  text-align: center;
+  font-size: 23px;
+  font-weight: bold;
+  color: #288f88;
+}
+.time {
+  position: relative;
+  left: 120px;
+  top: 50px;
+  text-align: center;
+  font-size: 23px;
+  font-weight: bold;
+  color: black;
+}
+h1 {
+  position: relative;
+  left: 120px;
+  top: 60px;
+  text-align: center;
+  color: #fe3366;
+  font-size: 70px;
+}
+
+h2 {
+  position: relative;
+  left: 120px;
+  top: 60px;
+  text-align: center;
+  color: #38bdb4;
+  font-size: 40px;
+}
+.unitC,
+.unitF {
+  color: #38bdb4;
+  font-size: 30px;
+}
+.one {
+  position: relative;
+  left: 50px;
+  top: -70px;
+  color: #fe3366;
+  text-align: center;
+}
+.main-weather {
+  padding-top: 5px;
+  padding-bottom: 10px;
+  width: 53px;
+  height: 70px;
+}
+.border-right {
+  border-right: 1px solid black;
+}
+p {
+  position: relative;
+  color: #288f88;
+  text-align: center;
+  top: auto;
+  border: 0;
+  margin: 0;
+  display: inline;
+  font-size: 20px;
+}
+.no-gutters {
+  position: relative;
+  top: -20px;
+  left: 47px;
+  text-align: center;
+}
+.weather {
+  position: relative;
+  display: block;
+  left: 24px;
+  top: 5px;
+}
