@@ -21,8 +21,8 @@ function showTemperature(response) {
   let temperatureElement = document.querySelector("#nowTemp");
   temperatureElement.innerHTML = `${temperature}`;
   let descriptionElement = document.querySelector("h1");
-  let city = document.querySelector("#city");
-  city.innerHTML = response.data.name;
+  let cityName = document.querySelector("#city");
+  cityName.innerHTML = response.data.name;
   descriptionElement.innerHTML = response.data.weather[0].main;
   let todayTempMax = Math.round(response.data.main.temp_max);
   let todayTempMin = Math.round(response.data.main.temp_min);
@@ -32,13 +32,16 @@ function showTemperature(response) {
   todayMin.innerHTML = `${todayTempMin}ºC`;
 }
 
+function search(city) {
+  let apiKey = "ad22b72462408b5be9391931a8e3091a";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=ad22b72462408b5be9391931a8e3091a`;
+  axios.get(apiUrl).then(showTemperature);
+}
+
 function handleSubmit(event) {
   event.preventDefault();
-  let search = document.querySelector("#search-input");
-  let searchInput = search.value;
-  let apiKey = "ad22b72462408b5be9391931a8e3091a";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${searchInput}&units=metric&appid=ad22b72462408b5be9391931a8e3091a`;
-  axios.get(apiUrl).then(showTemperature);
+  let city = document.querySelector("#search-input").value;
+  search(city);
 }
 
 let form = document.querySelector("#search");
@@ -56,6 +59,9 @@ function getCurrentLocation() {
 
 let button = document.querySelector("button");
 button.addEventListener("click", getCurrentLocation);
+
+search("Porto");
+
 //function convertFahrenheit(event) {
 //event.preventDefault();
 //temperature.innerHTML = `64`;
