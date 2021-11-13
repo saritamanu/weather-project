@@ -32,6 +32,11 @@ function showTemperature(response) {
   todayMax.innerHTML = `${todayTempMax}ºC`;
   todayMin.innerHTML = `${todayTempMin}ºC`;
   formatDate();
+  let iconElement = document.querySelector("#icon");
+  iconElement.setAttribute(
+    "src",
+    `src/images/${response.data.weather[0].icon}.png`
+  );
 }
 
 function search(city) {
