@@ -18,9 +18,10 @@ function formatDate() {
   let hourTwo = document.querySelector("#hourTwo");
   let hourThree = document.querySelector("#hourThree");
   let hourFour = document.querySelector("#hourFour");
-  hourTwo.innerHTML = `${hour + 1}:00`;
-  hourThree.innerHTML = `${hour + 2}:00`;
-  hourFour.innerHTML = `${hour + 3}:00`;
+  hourOne.innerHTML = hour + 1 + `:00`;
+  hourTwo.innerHTML = hour + 2 + `:00`;
+  hourThree.innerHTML = hour + 3 + `:00`;
+  hourFour.innerHTML = hour + 4 + `:00`;
 }
 
 function showTemperature(response) {
