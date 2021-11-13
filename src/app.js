@@ -37,6 +37,11 @@ function showTemperature(response) {
     "src",
     `src/images/${response.data.weather[0].icon}.png`
   );
+  let iconTodayElement = document.querySelector("#today");
+  iconTodayElement.setAttribute(
+    "src",
+    `src/images/${response.data.weather[0].icon}.png`
+  );
 }
 
 function search(city) {
