@@ -14,6 +14,13 @@ function formatDate() {
   let day = days[now.getDay()];
   let time = document.querySelector("#currentTime");
   time.innerHTML = `${day}, ${hour}:${minutes}`;
+  let hourOne = document.querySelector("#hourOne");
+  let hourTwo = document.querySelector("#hourTwo");
+  let hourThree = document.querySelector("#hourThree");
+  let hourFour = document.querySelector("#hourFour");
+  hourTwo.innerHTML = `${hour + 1}:00`;
+  hourThree.innerHTML = `${hour + 2}:00`;
+  hourFour.innerHTML = `${hour + 3}:00`;
 }
 
 function showTemperature(response) {
@@ -42,6 +49,10 @@ function showTemperature(response) {
     "src",
     `src/images/${response.data.weather[0].icon}.png`
   );
+}
+
+function hours(city) {
+  let apiHour = `api.openweathermap.org/data/2.5/forecast?q=${city}&appid=ad22b72462408b5be9391931a8e3091a`;
 }
 
 function search(city) {
