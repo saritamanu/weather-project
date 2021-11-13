@@ -1,7 +1,6 @@
 .box {
   max-width: 600px;
   margin: 20px auto;
-  padding-bottom: 60px;
   border: 3px #303f42;
   font-family: "Patrick Hand", cursive;
   border-radius: 28px;
@@ -34,22 +33,29 @@ button {
 .main-sun {
   display: block;
   position: relative;
-  top: -120px;
+  top: -190px;
   left: 80px;
 }
 .city {
   position: relative;
   left: 120px;
-  top: 50px;
+  top: 30px;
   text-align: center;
-  font-size: 23px;
+  font-size: 50px;
   font-weight: bold;
-  color: #288f88;
+  color: black;
+}
+.update {
+  position: relative;
+  left: 120px;
+  top: 30px;
+  text-align: center;
+  font-size: 10px;
 }
 .time {
   position: relative;
   left: 120px;
-  top: 50px;
+  top: 30px;
   text-align: center;
   font-size: 23px;
   font-weight: bold;
@@ -58,7 +64,7 @@ button {
 h1 {
   position: relative;
   left: 120px;
-  top: 60px;
+  top: 30px;
   text-align: center;
   color: #fe3366;
   font-size: 70px;
@@ -67,7 +73,7 @@ h1 {
 h2 {
   position: relative;
   left: 120px;
-  top: 60px;
+  top: 30px;
   text-align: center;
   color: #38bdb4;
   font-size: 40px;
@@ -80,7 +86,7 @@ h2 {
 .one {
   position: relative;
   left: 50px;
-  top: -70px;
+  top: -110px;
   color: #fe3366;
   text-align: center;
 }
@@ -105,7 +111,7 @@ p {
 }
 .no-gutters {
   position: relative;
-  top: -20px;
+  top: -70px;
   left: 47px;
   text-align: center;
 }
