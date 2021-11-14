@@ -95,7 +95,7 @@ h2 {
 .one {
   position: relative;
   left: 50px;
-  top: -110px;
+  top: -150px;
   color: #fe3366;
   text-align: center;
 }
@@ -120,7 +120,7 @@ p {
 }
 .no-gutters {
   position: relative;
-  top: -70px;
+  top: -110px;
   left: 47px;
   text-align: center;
 }
