@@ -78,10 +78,17 @@ h2 {
   color: #38bdb4;
   font-size: 40px;
 }
-.unitC,
-.unitF {
-  color: #38bdb4;
-  font-size: 30px;
+.units {
+  color: black;
+  font-size: 20px;
+  text-decoration: none;
+}
+.units .active {
+  cursor: default;
+  color: black;
+}
+.units .active:hover {
+  text-decoration: none;
 }
 .one {
   position: relative;

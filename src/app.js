@@ -14,46 +14,37 @@ function formatDate() {
   let day = days[now.getDay()];
   let time = document.querySelector("#currentTime");
   time.innerHTML = `${day}, ${hour}:${minutes}`;
-  let hourOne = document.querySelector("#hourOne");
-  let hourTwo = document.querySelector("#hourTwo");
-  let hourThree = document.querySelector("#hourThree");
-  let hourFour = document.querySelector("#hourFour");
-  hourOne.innerHTML = hour + 1 + `:00`;
-  hourTwo.innerHTML = hour + 2 + `:00`;
-  hourThree.innerHTML = hour + 3 + `:00`;
-  hourFour.innerHTML = hour + 4 + `:00`;
 }
 
 function showTemperature(response) {
   console.log(response.data);
   let temperature = Math.round(response.data.main.temp);
   let temperatureElement = document.querySelector("#nowTemp");
-  temperatureElement.innerHTML = `${temperature}`;
   let descriptionElement = document.querySelector("h1");
   let cityName = document.querySelector("#city");
-  cityName.innerHTML = response.data.name;
-  descriptionElement.innerHTML = response.data.weather[0].main;
   let todayTempMax = Math.round(response.data.main.temp_max);
   let todayTempMin = Math.round(response.data.main.temp_min);
   let todayMax = document.querySelector("#todayMax");
   let todayMin = document.querySelector("#todayMin");
+  let iconElement = document.querySelector("#icon");
+  let iconTodayElement = document.querySelector("#today");
+
+  celsiusTemperature = response.data.main.temp;
+  formatDate();
+
+  temperatureElement.innerHTML = `${temperature}`;
+  cityName.innerHTML = response.data.name;
+  descriptionElement.innerHTML = response.data.weather[0].main;
   todayMax.innerHTML = `${todayTempMax}ºC`;
   todayMin.innerHTML = `${todayTempMin}ºC`;
-  formatDate();
-  let iconElement = document.querySelector("#icon");
   iconElement.setAttribute(
     "src",
     `src/images/${response.data.weather[0].icon}.png`
   );
-  let iconTodayElement = document.querySelector("#today");
   iconTodayElement.setAttribute(
     "src",
     `src/images/${response.data.weather[0].icon}.png`
   );
-}
-
-function hours(city) {
-  let apiHour = `api.openweathermap.org/data/2.5/forecast?q=${city}&appid=ad22b72462408b5be9391931a8e3091a`;
 }
 
 function search(city) {
@@ -68,6 +59,9 @@ function handleSubmit(event) {
   search(city);
 }
 
+function futureForecast(response) {
+  let apiUrlFuture = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&units=metric&appid=ad22b72462408b5be9391931a8e3091a`;
+}
 let form = document.querySelector("#search");
 form.addEventListener("submit", handleSubmit);
 
@@ -84,19 +78,28 @@ function getCurrentLocation() {
 let button = document.querySelector("button");
 button.addEventListener("click", getCurrentLocation);
 
+function convertFahrenheit(event) {
+  event.preventDefault();
+  let temperatureElement = document.querySelector("#nowTemp");
+  celsius.classList.remove("active");
+  fahrenheit.classList.add("active");
+  let fahrenheitTemperature = (celsiusTemperature * 9) / 5 + 32;
+  temperatureElement.innerHTML = Math.round(fahrenheitTemperature);
+}
+
+function convertCelsius(event) {
+  event.preventDefault();
+  let temperatureElement = document.querySelector("#nowTemp");
+  celsius.classList.add("active");
+  fahrenheit.classList.remove("active");
+  temperatureElement.innerHTML = Math.round(celsiusTemperature);
+}
+
+let celsiusTemperature = null;
+
+let fahrenheit = document.querySelector("#fahrenheit");
+fahrenheit.addEventListener("click", convertFahrenheit);
+
+let celsius = document.querySelector("#celsius");
+celsius.addEventListener("click", convertCelsius);
 search("Porto");
-
-//function convertFahrenheit(event) {
-//event.preventDefault();
-//temperature.innerHTML = `64`;
-//}
-//function convertCelsius(event) {
-//event.preventDefault();
-//temperature.innerHTML = `18`;
-//}
-
-//let fahrenheit = document.querySelector("#fahrenheit");
-//fahrenheit.addEventListener("click", convertFahrenheit);
-
-//let celsius = document.querySelector("#celsius");
-//celsius.addEventListener("click", convertCelsius);
