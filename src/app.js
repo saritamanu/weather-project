@@ -15,24 +15,37 @@ function formatDate() {
   let time = document.querySelector("#currentTime");
   time.innerHTML = `${day}, ${hour}:${minutes}`;
 }
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 
+  return days[day];
+}
 function displayForecast(response) {
+  let forecast = response.data.daily;
   let forecastElement = document.querySelector("#forecast");
 
   let forecastHTML = "";
   let days = ["Wed", "Thu", "Fri", "Sat", "Sun"];
-  days.forEach(function (day) {
-    forecastHTML =
-      forecastHTML +
-      `<div class="col-sm-2 border-right">
-            <h3><strong>${day}</strong></h3>
-            <img class="main-weather" id="today" alt="" />
+  forecast.forEach(function (forecastDay, index) {
+    if (index < 5) {
+      forecastHTML =
+        forecastHTML +
+        `<div class="col-sm-2 ">
+            <h3><strong>${formatDay(forecastDay.dt)}</strong></h3>
+            <img src= "src/images/${
+              forecastDay.weather[0].icon
+            }.png"  alt="" class="main-weather"  />
 
             <p>
-              <strong id="todayMax">20ºC</strong>/<small id="todayMin"
-                >16ºC</small
+              <strong id="todayMax">${Math.round(
+                forecastDay.temp.max
+              )}ºC</strong>/<small id="todayMin"
+                >${Math.round(forecastDay.temp.min)}ºC</small
               >
             </p></div>`;
+    }
   });
 
   forecastElement.innerHTML = forecastHTML;
