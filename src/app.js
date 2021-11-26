@@ -16,18 +16,28 @@ function formatDate() {
   time.innerHTML = `${day}, ${hour}:${minutes}`;
 }
 
+function displayForecast() {
+  let forecastElement = document.querySelector("#forecast");
+
+  forecastElement.innerHTML = `<div class="col-sm-2 border-right">
+            <h3><strong>Today</strong></h3>
+            <img class="main-weather" id="today" alt="" />
+
+            <p>
+              <strong id="todayMax">20ºC</strong>/<small id="todayMin"
+                >16ºC</small
+              >
+            </p></div>`;
+}
+
 function showTemperature(response) {
   console.log(response.data);
   let temperature = Math.round(response.data.main.temp);
   let temperatureElement = document.querySelector("#nowTemp");
   let descriptionElement = document.querySelector("h1");
   let cityName = document.querySelector("#city");
-  let todayTempMax = Math.round(response.data.main.temp_max);
-  let todayTempMin = Math.round(response.data.main.temp_min);
-  let todayMax = document.querySelector("#todayMax");
-  let todayMin = document.querySelector("#todayMin");
+
   let iconElement = document.querySelector("#icon");
-  let iconTodayElement = document.querySelector("#today");
 
   celsiusTemperature = response.data.main.temp;
   formatDate();
@@ -35,13 +45,8 @@ function showTemperature(response) {
   temperatureElement.innerHTML = `${temperature}`;
   cityName.innerHTML = response.data.name;
   descriptionElement.innerHTML = response.data.weather[0].main;
-  todayMax.innerHTML = `${todayTempMax}ºC`;
-  todayMin.innerHTML = `${todayTempMin}ºC`;
+
   iconElement.setAttribute(
-    "src",
-    `src/images/${response.data.weather[0].icon}.png`
-  );
-  iconTodayElement.setAttribute(
     "src",
     `src/images/${response.data.weather[0].icon}.png`
   );
@@ -94,7 +99,7 @@ function convertCelsius(event) {
   fahrenheit.classList.remove("active");
   temperatureElement.innerHTML = Math.round(celsiusTemperature);
 }
-
+displayForecast();
 let celsiusTemperature = null;
 
 let fahrenheit = document.querySelector("#fahrenheit");
