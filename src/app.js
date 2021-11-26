@@ -19,8 +19,13 @@ function formatDate() {
 function displayForecast() {
   let forecastElement = document.querySelector("#forecast");
 
-  forecastElement.innerHTML = `<div class="col-sm-2 border-right">
-            <h3><strong>Today</strong></h3>
+  let forecastHTML = "";
+  let days = ["Wed", "Thu", "Fri", "Sat", "Sun"];
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `<div class="col-sm-2 border-right">
+            <h3><strong>${day}</strong></h3>
             <img class="main-weather" id="today" alt="" />
 
             <p>
@@ -28,6 +33,9 @@ function displayForecast() {
                 >16ºC</small
               >
             </p></div>`;
+  });
+
+  forecastElement.innerHTML = forecastHTML;
 }
 
 function showTemperature(response) {
