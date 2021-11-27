@@ -1,6 +1,6 @@
 function formatDate() {
   let now = new Date();
-  let hour = now.getHours();
+  let hour = ("0" + now.getHours()).slice(-2);
   let minutes = ("0" + now.getMinutes()).slice(-2);
   let days = [
     "Sunday",
@@ -110,28 +110,4 @@ function getCurrentLocation() {
 let button = document.querySelector("button");
 button.addEventListener("click", getCurrentLocation);
 
-function convertFahrenheit(event) {
-  event.preventDefault();
-  let temperatureElement = document.querySelector("#nowTemp");
-  celsius.classList.remove("active");
-  fahrenheit.classList.add("active");
-  let fahrenheitTemperature = (celsiusTemperature * 9) / 5 + 32;
-  temperatureElement.innerHTML = Math.round(fahrenheitTemperature);
-}
-
-function convertCelsius(event) {
-  event.preventDefault();
-  let temperatureElement = document.querySelector("#nowTemp");
-  celsius.classList.add("active");
-  fahrenheit.classList.remove("active");
-  temperatureElement.innerHTML = Math.round(celsiusTemperature);
-}
-
-let celsiusTemperature = null;
-
-let fahrenheit = document.querySelector("#fahrenheit");
-fahrenheit.addEventListener("click", convertFahrenheit);
-
-let celsius = document.querySelector("#celsius");
-celsius.addEventListener("click", convertCelsius);
 search("Porto");

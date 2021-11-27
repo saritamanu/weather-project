@@ -33,17 +33,17 @@ button {
 .icon {
   display: block;
   position: relative;
-  top: -200px;
-  left: 80px;
-  width: 220px;
-  height: 220px;
+  top: -280px;
+  left: 60px;
+  width: 230px;
+  height: 230px;
 }
 .city {
   position: relative;
   left: 120px;
   top: 30px;
   text-align: center;
-  font-size: 50px;
+  font-size: 80px;
   font-weight: bold;
   color: black;
 }
@@ -69,35 +69,37 @@ h1 {
   top: 30px;
   text-align: center;
   color: #fe3366;
-  font-size: 70px;
+  font-size: 80px;
+  font-weight: bold;
 }
 
 h2 {
   position: relative;
-  left: 120px;
+  left: 140px;
   top: 30px;
   text-align: center;
   color: #38bdb4;
-  font-size: 40px;
+  font-size: 90px;
+  font-weight: bold;
 }
-.units {
-  color: black;
-  font-size: 20px;
-  text-decoration: none;
-}
+
 .units .active {
-  cursor: default;
+  font-size: 30px;
   color: black;
-}
-.units .active:hover {
   text-decoration: none;
+  position: relative;
+  left: -10px;
+  top: -5px;
 }
+
 .one {
   position: relative;
   left: 50px;
-  top: -150px;
+  top: -170px;
   color: #fe3366;
   text-align: center;
+  font-weight: bold;
+  height: 30px;
 }
 .main-weather {
   padding-top: 5px;
@@ -105,9 +107,7 @@ h2 {
   width: 53px;
   height: 70px;
 }
-.border-right {
-  border-right: 1px solid black;
-}
+
 p {
   position: relative;
   color: #288f88;
